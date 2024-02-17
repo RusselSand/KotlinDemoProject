@@ -1,14 +1,13 @@
 package ru.test.vknewsclient.navigation
 
 import androidx.compose.runtime.Composable
-import androidx.navigation.NavArgument
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavType
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import androidx.navigation.navigation
 import com.google.gson.Gson
-import ru.test.vknewsclient.domain.PostItem
+import ru.test.vknewsclient.domain.entity.PostItem
 
 fun NavGraphBuilder.homeScreenNavGraph(
     commentsScreenContent: @Composable (PostItem) -> Unit,

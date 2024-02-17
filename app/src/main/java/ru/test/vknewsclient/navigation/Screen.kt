@@ -2,7 +2,7 @@ package ru.test.vknewsclient.navigation
 
 import android.net.Uri
 import com.google.gson.Gson
-import ru.test.vknewsclient.domain.PostItem
+import ru.test.vknewsclient.domain.entity.PostItem
 
 sealed class Screen (
     val route: String

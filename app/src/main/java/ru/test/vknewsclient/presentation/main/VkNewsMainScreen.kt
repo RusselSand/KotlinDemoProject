@@ -14,6 +14,7 @@ import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.compose.currentBackStackEntryAsState
 import ru.test.vknewsclient.navigation.AppNavGraph
 import ru.test.vknewsclient.navigation.rememberNavState
+import ru.test.vknewsclient.presentation.ViewModelFactory
 import ru.test.vknewsclient.presentation.comments.CommentsScreen
 import ru.test.vknewsclient.presentation.news.NewsFeedScreen
 
@@ -66,7 +67,7 @@ fun MainScreen(){
                     paddingValues = paddingValues,
                     onCommentClickListener = {
                         navigationState.navigateToComments(it)
-                    }
+                    },
                 )
              },
             commentsScreenContent = { postItem ->

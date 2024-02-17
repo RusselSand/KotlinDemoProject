@@ -1,4 +1,4 @@
-package ru.test.vknewsclient
+package ru.test.vknewsclient.domain.entity
 
 import android.content.Context
 
@@ -11,10 +11,6 @@ class PreferencesKeyValueStorage(context: Context, prefsName: String = PREFERENC
 
     fun get(key: String): String? {
         return prefs.getString(key, null)
-    }
-
-    fun remove(key: String) {
-        prefs.edit().remove(key).apply()
     }
 
     companion object {

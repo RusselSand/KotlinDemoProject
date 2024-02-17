@@ -1,9 +1,8 @@
-package ru.test.vknewsclient
+package ru.test.vknewsclient.presentation.main
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import ru.test.vknewsclient.presentation.main.VKIDAuthScreen
 import ru.test.vknewsclient.ui.theme.VkNewsClientTheme
 
 class MainActivity : ComponentActivity() {

@@ -1,7 +1,7 @@
 package ru.test.vknewsclient.presentation.comments
 
-import ru.test.vknewsclient.domain.PostComment
-import ru.test.vknewsclient.domain.PostItem
+import ru.test.vknewsclient.domain.entity.PostComment
+import ru.test.vknewsclient.domain.entity.PostItem
 
 sealed class CommentsScreenState {
     object Initial: CommentsScreenState()

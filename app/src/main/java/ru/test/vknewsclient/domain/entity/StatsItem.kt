@@ -1,4 +1,4 @@
-package ru.test.vknewsclient.domain
+package ru.test.vknewsclient.domain.entity
 
 data class StatsItem(
     val type: StatsType,

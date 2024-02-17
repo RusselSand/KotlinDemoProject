@@ -1,40 +1,19 @@
 package ru.test.vknewsclient.presentation.comments
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import ru.test.vknewsclient.domain.PostComment
-import ru.test.vknewsclient.domain.PostItem
+import kotlinx.coroutines.flow.map
+import ru.test.vknewsclient.domain.entity.PostItem
+import ru.test.vknewsclient.domain.usecase.GetCommentsUseCase
+import javax.inject.Inject
 
-class CommentsViewModel(
-    postItem: PostItem
+class CommentsViewModel @Inject constructor(
+    private val getCommentsUseCase: GetCommentsUseCase,
+    private val postItem: PostItem
 ): ViewModel() {
 
-    private val _screenState = MutableLiveData<CommentsScreenState>(CommentsScreenState.Initial)
-    val screenState: LiveData<CommentsScreenState> = _screenState
-
-    init {
-        loadComments(postItem)
-    }
-    private fun loadComments(postItem:PostItem){
-        val commentsList = mutableListOf<PostComment>().apply {
-            repeat(15){
-                add(PostComment(id = it))
-            }
-        }
-        _screenState.value = CommentsScreenState.Comments(
+    val screenState = getCommentsUseCase.invoke(postItem)
+        .map{CommentsScreenState.Comments(
             feedPost = postItem,
-            comments = commentsList
-        )
-    }
-
-//    fun showComments(postItem: PostItem) {
-//        savedState = _screenState.value
-//        _screenState.value = CommentsScreenState.Comments(
-//            postItem, commentsList)
-//    }
-//
-//    fun closeComments(){
-//        _screenState.value = savedState!!
-//    }
+            comments = it
+        )}
 }
